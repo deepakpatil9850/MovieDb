@@ -1,13 +1,16 @@
-import {useState} from "react";
-import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import {Outlet} from "react-router";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <h1 className="text-8xl">{count}</h1>
-      <button onClick={() => setCount((prev) => prev + 1)}> + </button>
+    <div className="bg-gray-900 min-h-screen text-white max-w-full mx-auto">
+      <Header />
+      <main className="container mx-auto px-4 py-18 min-h-screen">
+        <h1>Home page</h1>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
