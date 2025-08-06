@@ -1,3 +1,5 @@
+import {Star} from "lucide-react";
+
 export type MovieCardProps = {
   id?: number;
   title: string;
@@ -11,27 +13,40 @@ const MovieCard: React.FC<MovieCardProps> = ({
   title,
   poster_path,
   release_date,
-  overview,
   vote_average,
 }) => {
   return (
-    <div>
+    <div className="rounded-lg overflow-hidden w-44 min-h-74 shadow-gray-950 shadow-xl hover:shadow-2xl transition-shadow duration-300">
       <img
         src={import.meta.env.VITE_POSTER_BASE_URL + "/w500/" + poster_path}
-        alt="Movie Poster"
-        className="w-full h-64 object-cover rounded-lg mb-4"
+        alt={title + " poster"}
+        className="object-cover min-h-60 w-full bg-gray-600"
+        loading="lazy"
       />
       <div>
-        <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-          <h2 className="text-white text-xl font-bold">{title}</h2>
-          <p className="text-gray-400">{release_date}</p>
-          <p className="text-gray-300 line-clamp-3">
-            {overview || "No overview available."}
-          </p>
-          <div className="mt-2">
-            <span className="text-yellow-400 font-semibold">
-              Rating: {vote_average.toFixed(1)}
-            </span>
+        <div className=" p-1  rounded-lg">
+          <h2 className="text-white text-lg font-semibold  tracking-tight line-clamp-2 leading-tight">
+            {title}
+          </h2>
+          <div className="flex justify-between items-center ">
+            <p className="text-gray-400 text-sm">{release_date}</p>
+            <div className="relative mr-2.5">
+              <Star
+                size={45}
+                strokeWidth={1}
+                color={
+                  vote_average >= 7
+                    ? "lime"
+                    : vote_average >= 5
+                    ? "gold"
+                    : "darkorange"
+                }
+                className="text-green-600"
+              />
+              <span className="absolute top-[35.0%] left-[32.30%] text-white text-xs font-semibold">
+                {vote_average?.toFixed(1) || "N/A"}
+              </span>
+            </div>
           </div>
         </div>
       </div>

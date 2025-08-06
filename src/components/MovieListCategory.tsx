@@ -3,9 +3,16 @@ import {useQuery} from "@tanstack/react-query";
 import {useErrorBoundary} from "react-error-boundary";
 import MovieList from "../components/MoviesList";
 import {capitalizeStr} from "../utils";
+import Pagination from "./Pagination";
+import MovieListShimmer from "../shimmer/MovieListShimmer";
 
 export type MovieListCategoryProps = {
-  category: "now playing" | "popular" | "top rated" | "upcoming";
+  category:
+    | "now playing"
+    | "popular"
+    | "top rated"
+    | "upcoming"
+    | "search results";
   url_params: string;
 };
 
@@ -50,25 +57,27 @@ const MovieListCategory: React.FC<MovieListCategoryProps> = ({
   });
 
   if (isPending) {
-    return <h1 className="text-8xl">Loading...</h1>;
+    return <MovieListShimmer />;
   }
   if (error) {
-    return <h1 className="text-8xl">Something went wrong </h1>;
+    return <h1 className="text-5xl ">Something went wrong... </h1>;
   }
+  console.log("MovieListCategory data:", data);
   return (
-    <div>
-      <h1 className="text-3xl text-orange-400">{capitalizeStr(category)}</h1>
+    <div className="mt-6 mb-6">
+      <h1 className="text-3xl mb-6 underline underline-offset-8">
+        {capitalizeStr(category)}
+      </h1>
       {data ? (
         data.results && <MovieList movies={data.results} />
       ) : (
-        <h1 className="text-8xl">No movies found</h1>
+        <h1 className="text-5xl">No movies found</h1>
       )}
-      <button
-        onClick={() => setPageNumber((prev: number) => prev + 1)}
-        className="mt-6 bg-blue-600 text-white px-4 py-2 rounded"
-      >
-        next
-      </button>
+      <Pagination
+        changePage={setPageNumber}
+        currentPage={pageNumber}
+        totalPages={data.total_pages}
+      />
     </div>
   );
 };

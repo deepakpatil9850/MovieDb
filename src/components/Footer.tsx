@@ -1,5 +1,12 @@
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <footer className="bg-gray-800 text-white py-4 text-center">
+      <p className="text-sm">
+        &copy; {new Date().getFullYear()} Movie App. All rights reserved.
+      </p>
+      <p className="text-sm">Developed by Deepak Patil</p>
+    </footer>
+  );
 };
 
 export default Footer;

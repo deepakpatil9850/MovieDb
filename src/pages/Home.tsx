@@ -4,7 +4,6 @@ import MovieListCategory from "../components/MovieListCategory";
 
 const Home: React.FC = () => {
   //   const [pathname, setPathname] = React.useState<string>(() => {
-  //     // Initialize pathname from the current location
   //     return window.location.pathname;
   //   });
   //   const location = useLocation();
@@ -12,7 +11,6 @@ const Home: React.FC = () => {
   //   console.log("location: " + location.pathname);
 
   //   useEffect(() => {
-  //     // Update pathname whenever the location changes
   //     setPathname(location.pathname);
   //     console.log("Updated pathname: " + location.pathname);
   //   }, [location.pathname]);

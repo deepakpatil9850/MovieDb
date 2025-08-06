@@ -12,7 +12,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="bg-gray-900 min-h-screen text-white max-w-full mx-auto">
         <Header />
-        <main className="container mx-auto px-4 py-18 min-h-screen">
+        <main className="mx-auto px-4  sm:px-8 md:px-10 lg:px-16 py-18 min-h-screen">
           <ErrorBoundary
             fallbackRender={({error, resetErrorBoundary}) => (
               <FallbackOnError

@@ -43,7 +43,7 @@ const MovieDetails: React.FC = () => {
 
   console.log("Movie Details:", data);
   return (
-    <div className="container flex mx-auto px-4 py-8">
+    <div className="bg-yellow-300">
       <div className="flex gap-4 mb-8">
         <img
           src={
