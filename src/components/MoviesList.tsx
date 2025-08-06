@@ -1,6 +1,7 @@
 import React from "react";
 import type {MovieCardProps} from "./MovieCard";
 import MovieCard from "./MovieCard";
+import {Link} from "react-router";
 
 export type MovieListProps = {
   movies: MovieCardProps[];
@@ -8,14 +9,9 @@ export type MovieListProps = {
 
 const MovieList: React.FC<MovieListProps> = ({movies}) => {
   return (
-    <div>
-      {movies.length === 0 ? (
-        <h1 className="text-8xl">No movies found</h1>
-      ) : (
-        <h1 className="text-4xl mb-4">Popular Movies</h1>
-      )}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {movies.map((movie: MovieCardProps) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {movies.map((movie: MovieCardProps) => (
+        <Link to={`/movie/${movie.id}`} key={movie.id}>
           <MovieCard
             key={movie.id}
             title={movie.title}
@@ -24,8 +20,8 @@ const MovieList: React.FC<MovieListProps> = ({movies}) => {
             vote_average={movie.vote_average}
             overview={movie.overview}
           />
-        ))}
-      </div>
+        </Link>
+      ))}
     </div>
   );
 };

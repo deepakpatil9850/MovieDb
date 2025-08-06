@@ -11,7 +11,7 @@ const FallbackOnError: React.FC<FallbackOnErrorProps> = ({
 }) => {
   return (
     <div className="text-center">
-      <h1 className="text-8xl">Something went wrong</h1>
+      <h1 className="text-8xl text-red-400">Something went wrong</h1>
       <p className="text-xl mt-4">
         {error instanceof Error ? error.message : String(error)}
       </p>

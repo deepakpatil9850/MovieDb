@@ -1,5 +1,11 @@
+import MovieListCategory from "../components/MovieListCategory";
+
 const TopRated = () => {
-  return <div>TopRated</div>;
+  return (
+    <div>
+      <MovieListCategory category="top rated" url_params="/top_rated" />
+    </div>
+  );
 };
 
 export default TopRated;

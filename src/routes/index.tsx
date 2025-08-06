@@ -4,6 +4,8 @@ import TopRated from "../pages/TopRated";
 import Popular from "../pages/Popular";
 import Upcoming from "../pages/Upcoming";
 import Home from "../pages/Home";
+import React from "react";
+import MovieDetails from "../pages/MovieDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,11 @@ const router = createBrowserRouter([
       {
         path: "upcoming",
         element: <Upcoming />,
+      },
+      {
+        path: "movie/:id",
+        element: <MovieDetails />, // Dynamic import for code splitting
+        // Lazy loading the MovieDetails component
       },
     ],
   },

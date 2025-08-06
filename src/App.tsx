@@ -27,7 +27,6 @@ function App() {
           >
             <Outlet />
           </ErrorBoundary>
-          {/* The Outlet component will render the child routes */}
         </main>
         <Footer />
       </div>
