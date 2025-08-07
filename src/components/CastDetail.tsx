@@ -33,9 +33,9 @@ const CastDetail: React.FC<CastDetailProps> = ({movieId}) => {
     },
   });
   return (
-    <div className="mt-6">
+    <div className="mt-6 w-full">
       <h2 className="text-2xl mb-4">Cast</h2>
-      <div className="flex flex-wrap justify-between gap-3">
+      <div className="w-[100%] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 justify-items-center">
         {data?.cast.slice(0, 6).map((cast: CastMember) => (
           <div key={cast.id} className="w-40 leading-tight">
             <img

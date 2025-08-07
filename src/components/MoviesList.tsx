@@ -9,7 +9,7 @@ export type MovieListProps = {
 
 const MovieList: React.FC<MovieListProps> = ({movies}) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 justify-items-center px-8 py-3 md:px-3 md:py-1 lg:px-0 lg:py-0">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-items-center px-8 py-3 md:px-3 md:py-1 lg:px-0 lg:py-0">
       {movies.map((movie: MovieCardProps) => (
         <Link to={`/movie/${movie.id}`} key={movie.id}>
           <MovieCard

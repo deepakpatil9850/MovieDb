@@ -6,6 +6,7 @@ import Upcoming from "../pages/Upcoming";
 import Home from "../pages/Home";
 import MovieDetails from "../pages/MovieDetails";
 import SearchResults from "../pages/SearchResults";
+import PageNotFound from "../pages/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "search",
         element: <SearchResults />,
+      },
+      {
+        path: "*",
+        element: <PageNotFound />,
       },
     ],
   },

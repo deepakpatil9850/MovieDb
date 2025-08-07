@@ -43,7 +43,7 @@ const MovieDetails: React.FC = () => {
   return (
     <section>
       <div className="rounded-md">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="p-3 bg-slate-950">
             <div className="flex rounded">
               <img
@@ -88,7 +88,7 @@ const MovieDetails: React.FC = () => {
               "/w500/" +
               data.backdrop_path
             }
-            className="w-full rounded-md"
+            className="w-full rounded-md hidden md:block"
             alt={data.title}
           />
         </div>
